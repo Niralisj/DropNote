@@ -1,0 +1,24 @@
+{
+  "name": "notedrop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build && concurrently -k \"vite preview --configLoader native --port 5173\" \"wait-on tcp:5173 && electron .\"",
+    "web": "vite --configLoader native",
+    "build": "vite build --configLoader native",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "latest",
+    "electron": "latest",
+    "vite": "^6.1.0",
+    "wait-on": "latest"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "main": "electron/main.cjs"
+}

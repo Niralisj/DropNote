@@ -1,0 +1,60 @@
+:root { font-family: ui-sans-serif, system-ui, sans-serif; color: #2b2937; background: #fbf8f3; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, textarea { font: inherit; }
+
+.app-shell {
+  min-height: 100vh; display: grid; place-items: center; padding: 3rem 1.25rem;
+  background: radial-gradient(circle at 20% 10%, #fff1dc 0 7rem, transparent 7.1rem), radial-gradient(circle at 85% 85%, #e7e0ff 0 9rem, transparent 9.1rem), #fbf8f3;
+}
+.notedrop { width: min(100%, 430px); }
+header { margin-bottom: 1.5rem; text-align: center; }
+.brand { margin: 0; color: #6653b7; font-family: ui-monospace, monospace; font-size: 1.05rem; font-weight: 700; letter-spacing: .05em; }
+.subtitle { margin: .4rem 0 0; color: #77717e; font-size: .95rem; }
+
+.reminder-form { display: grid; gap: 1rem; padding: 1.55rem; border: 1.5px solid #dad2c7; border-radius: 7px; background: #fffdf9; box-shadow: 5px 6px 0 #ede6dc; }
+label { font-weight: 600; }
+textarea { width: 100%; resize: vertical; min-height: 5.5rem; padding: .75rem; border: 0; border-bottom: 2px solid #b5ac9f; outline: none; color: inherit; background: transparent; }
+textarea:focus { border-bottom-color: #6653b7; }
+.time-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+input[type='time'] { min-width: 7.5rem; padding: .45rem .55rem; border: 1px solid #d5cec5; border-radius: 5px; color: inherit; background: #fff; }
+button { justify-self: center; padding: .65rem 1.05rem; border: 0; border-radius: 999px; color: #fff; background: #6653b7; cursor: pointer; font-weight: 700; }
+button:hover { background: #5542a8; transform: translateY(-1px); }
+
+.upcoming { margin-top: 2.8rem; }
+h2 { margin: 0 0 .8rem; color: #77717e; font-family: ui-monospace, monospace; font-size: .8rem; letter-spacing: .11em; text-align: center; text-transform: uppercase; }
+ul { display: grid; gap: .8rem; margin: 0; padding: 0; list-style: none; }
+li { display: flex; align-items: flex-start; gap: .8rem; padding: .9rem 1rem; border-radius: 8px; background: #fffdf9b8; }
+.note-icon { width: 1.15rem; height: 1.35rem; margin-top: .1rem; border: 1.5px solid #6653b7; border-radius: 2px; background: linear-gradient(#fffdf9 28%, #ded8ff 28% 35%, #fffdf9 35% 55%, #ded8ff 55% 62%, #fffdf9 62%); }
+li p { margin: 0 0 .2rem; font-weight: 600; }
+time { color: #77717e; font-size: .85rem; }
+
+.delivery {
+  position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; overflow: hidden;
+  background: rgb(46 41 72 / 18%); backdrop-filter: blur(2px); animation: fade-in .25s ease both;
+}
+.sticky-note {
+  position: relative; z-index: 2; width: min(78vw, 320px); min-height: 230px; padding: 2rem 1.6rem 1.45rem;
+  background: #fff3a5; box-shadow: 11px 13px 26px rgb(51 42 18 / 25%); transform: rotate(-2deg);
+  animation: note-drops .8s cubic-bezier(.17, .78, .35, 1.15) both;
+}
+.sticky-note::after { content: ''; position: absolute; right: 0; bottom: 0; border-width: 18px 0 0 18px; border-style: solid; border-color: transparent transparent transparent #e8d77a; }
+.pin { position: absolute; top: .55rem; left: calc(50% - .35rem); color: #ed756a; font-size: .7rem; text-shadow: 0 1px 1px #a74b45; }
+.note-label { margin: 0 0 1.2rem; color: #8a7434; font-family: ui-monospace, monospace; font-size: .72rem; letter-spacing: .09em; text-align: center; text-transform: uppercase; }
+.sticky-note h3 { margin: 0; font-size: 1.55rem; line-height: 1.17; text-align: center; }
+.note-time { margin: .45rem 0 1.6rem; color: #75632f; text-align: center; }
+.note-actions { display: grid; gap: .55rem; }
+.note-actions button { width: 100%; }
+.note-actions .done { background: #518d72; }
+.note-actions .done:hover { background: #40775e; }
+.note-actions .snooze { color: #5e532d; background: #f9e896; }
+.note-actions .snooze:hover { background: #eedc80; }
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes note-drops {
+  0% { opacity: 0; transform: translateY(-75vh) rotate(18deg); }
+  65% { opacity: 1; transform: translateY(20px) rotate(-5deg); }
+  82% { transform: translateY(-9px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+@media (max-width: 380px) { .time-row { align-items: flex-start; flex-direction: column; } }
