@@ -9,5 +9,8 @@ npm install
 npm run dev
 ```
 
-`npm run dev` first builds the React app, serves that build locally, and then opens it in Electron. The build-first setup is a temporary development-workspace workaround; it keeps the project running without adding product features before Phase 2.
+`npm run dev` 
+
+
+first builds the React app, serves that build locally, and then opens it in Electron. The build-first setup is a temporary development-workspace workaround; it keeps the project running without adding product features before Phase 2.
 
